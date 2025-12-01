@@ -4,28 +4,28 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Search, ShoppingCart, User, Menu, ChevronDown, ChevronUp, LogOut, Package, Heart, LayoutDashboard } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../ui/button.jsx";
+import { Input } from "../ui/input.jsx";
+import { Badge } from "../ui/badge.jsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "../ui/dropdown-menu.jsx";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
   SheetTitle,
-} from "@/components/ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useAuth } from "@/hooks/useAuth";
-import { useCart } from "@/context/CartContext";
-import { categories } from "@/data/products";
-import { useToast } from "@/hooks/use-toast";
+} from "../ui/sheet.jsx";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar.jsx";
+import { useAuth } from "../../hooks/useAuth.js";
+import { useCart } from "../../context/CartContext.jsx";
+import { categories } from "../../data/products.js";
+import { useToast } from "../../hooks/use-toast.js";
 
 export function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");

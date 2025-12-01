@@ -1,5 +1,5 @@
-import { ProductCard } from "./ProductCard";
-import { Skeleton } from "@/components/ui/skeleton";
+import { ProductCard } from "./ProductCard.jsx";
+import { Skeleton } from "../ui/skeleton.jsx";
 
 export function ProductGrid({ products, isLoading, columns = 4 }) {
   if (isLoading) {

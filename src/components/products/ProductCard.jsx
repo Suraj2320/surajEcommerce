@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Star, ShoppingCart, Heart, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { useCart } from "@/context/CartContext";
+import { Button } from "../ui/button.jsx";
+import { Badge } from "../ui/badge.jsx";
+import { Card, CardContent } from "../ui/card.jsx";
+import { useCart } from "../../context/CartContext.jsx";
 
 export function ProductCard({ product }) {
   const { addToCart, isInCart } = useCart();

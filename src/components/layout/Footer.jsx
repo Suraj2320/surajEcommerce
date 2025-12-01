@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "../ui/separator.jsx";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();

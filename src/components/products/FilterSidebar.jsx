@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { X, ChevronDown, ChevronUp, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Slider } from "@/components/ui/slider";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "../ui/button.jsx";
+import { Checkbox } from "../ui/checkbox.jsx";
+import { Slider } from "../ui/slider.jsx";
+import { Separator } from "../ui/separator.jsx";
 import {
   Sheet,
   SheetContent,
@@ -11,12 +11,12 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
-} from "@/components/ui/sheet";
+} from "../ui/sheet.jsx";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "../ui/collapsible.jsx";
 import { Filter } from "lucide-react";
 
 export function FilterSidebar({ 
