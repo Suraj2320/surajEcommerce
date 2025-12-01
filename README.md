@@ -283,4 +283,5 @@ npm run preview
 - **Lucide React** - Icon library
 - **Stripe** - Payment processing
 D e p l o y m e n t   t r i g g e r e d   a t   1 2 / 0 1 / 2 0 2 5   2 3 : 2 1 : 1 7  
+ E C 2   D e p l o y m e n t   c o n f i g u r e d   a t   1 2 / 0 2 / 2 0 2 5   0 0 : 0 2 : 2 7  
  
