@@ -22,7 +22,14 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+# Generate Prisma Client
 RUN npx prisma generate
+
+# Run migrations to create SQLite DB
+# We set the URL explicitly here to ensure it creates the file
+ENV DATABASE_URL "file:./dev.db"
+RUN npx prisma migrate deploy
+
 RUN npm run build
 
 # Production image, copy all the files and run next
@@ -50,6 +57,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy prisma directory for sqlite
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 
+# Copy the generated SQLite DB
+COPY --from=builder --chown=nextjs:nodejs /app/dev.db ./dev.db
+
 USER nextjs
 
 EXPOSE 3000
@@ -57,5 +67,6 @@ EXPOSE 3000
 ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
+ENV DATABASE_URL "file:./dev.db"
 
 CMD ["node", "server.js"]
