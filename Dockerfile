@@ -27,8 +27,8 @@ RUN npx prisma generate
 
 # Run migrations to create SQLite DB
 # We set the URL explicitly here to ensure it creates the file
-ENV DATABASE_URL "file:./dev.db"
-RUN npx prisma migrate deploy
+# ENV DATABASE_URL "file:./dev.db"
+# RUN npx prisma migrate deploy
 
 RUN npm run build
 
@@ -69,4 +69,4 @@ ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 ENV DATABASE_URL "file:./dev.db"
 
-CMD ["node", "server.js"]
+CMD ["/bin/sh", "-c", "npx prisma migrate deploy && node server.js"]
