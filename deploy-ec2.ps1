@@ -92,9 +92,37 @@ systemctl start docker
 systemctl enable docker
 usermod -aG docker ec2-user
 sleep 10
+# Create network
+docker network create surajhub-net
+
+# Start Postgres
+docker run -d \
+  --name surajhub-postgres \
+  --network surajhub-net \
+  --restart always \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=surajhub \
+  -v postgres_data:/var/lib/postgresql/data \
+  postgres:15-alpine
+
+# Wait for Postgres
+sleep 10
+
 aws ecr get-login-password --region $Region | docker login --username AWS --password-stdin $EcrUri
 TAG=$(aws ecr describe-images --repository-name $AppName --region $Region --query 'sort_by(imageDetails,& imagePushedAt)[-1].imageTags[0]' --output text)
-docker run -d -p 3000:3000 --restart always ${EcrUri}:$TAG
+
+# Start Web App
+docker run -d \
+  --name surajhub-web \
+  --network surajhub-net \
+  -p 3000:3000 \
+  --restart always \
+  -e DATABASE_URL=postgresql://postgres:postgres@surajhub-postgres:5432/surajhub?schema=public \
+  -e JWT_SECRET=supersecretkey \
+  -e NEXT_TELEMETRY_DISABLED=1 \
+  -e HOSTNAME=0.0.0.0 \
+  ${EcrUri}:$TAG
 "@
 $UserDataEncoded = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($UserData))
 
