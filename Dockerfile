@@ -58,7 +58,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 
 # Copy the generated SQLite DB
-COPY --from=builder --chown=nextjs:nodejs /app/dev.db ./dev.db
+# COPY --from=builder --chown=nextjs:nodejs /app/dev.db ./dev.db
 
 USER nextjs
 
@@ -67,6 +67,6 @@ EXPOSE 3000
 ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
-ENV DATABASE_URL "file:./dev.db"
+# ENV DATABASE_URL "file:./dev.db"
 
 CMD ["/bin/sh", "-c", "npx prisma migrate deploy && node server.js"]
