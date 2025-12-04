@@ -210,7 +210,7 @@ export function Navbar() {
                     </Avatar>
                     <div className="hidden lg:flex flex-col items-start">
                       <span className="text-xs font-bold text-primary">Welcome</span>
-                      <span className="text-sm font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      <span className="text-sm font-bold text-foreground">
                         {user.firstName || "User"}
                       </span>
                     </div>
