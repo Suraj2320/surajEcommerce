@@ -131,11 +131,11 @@ To test the application, follow these steps:
 
 
 ## 📦 API Reference
-The API reference is available at [https://example.com/api/docs](https://example.com/api/docs).
+The API reference is available at
 
 
 ## 👤 Author
-The E-commerce Platform was created by [Your Name](https://example.com).
+The E-commerce Platform was created by [Suraj Pawar](https://example.com).
 
 
 ## 📝 License
