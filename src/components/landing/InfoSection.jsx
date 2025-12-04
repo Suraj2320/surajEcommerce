@@ -51,7 +51,7 @@ export function InfoSection() {
                         </div>
                         <div>
                             <img
-                                src="https://images.unsplash.com/photo-1542601906990-b4d3fb7d5fa5?q=80&w=2070&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
                                 alt="Sustainability"
                                 className="rounded-lg shadow-xl w-full h-[400px] object-cover"
                             />
