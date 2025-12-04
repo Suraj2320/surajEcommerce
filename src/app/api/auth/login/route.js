@@ -22,7 +22,7 @@ export async function POST(req) {
         const token = jwt.sign({ userId: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "7d" });
         (await cookies()).set("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
+            secure: false, // process.env.NODE_ENV === "production", // TODO: Enable this when we have HTTPS
             maxAge: 60 * 60 * 24 * 7, // 7 days
             path: "/",
         });
